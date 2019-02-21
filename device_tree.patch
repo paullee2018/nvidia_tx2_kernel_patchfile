@@ -1,0 +1,32 @@
+diff -ruN hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-common.dtsi /usr/src/hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-common.dtsi
+--- hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-common.dtsi	2018-05-16 00:53:25.000000000 +0000
++++ /usr/src/hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-common.dtsi	2019-02-20 01:31:38.423564760 +0000
+@@ -42,8 +42,6 @@
+ 
+ 	serial@3100000 {
+ 		compatible = "nvidia,tegra20-uart", "nvidia,tegra186-hsuart";
+-		console-port;
+-		sqa-automation-port;
+ 		status = "okay";
+ 	};
+ 
+diff -ruN hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-common-p3310-1000-a00.dtsi /usr/src/hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-common-p3310-1000-a00.dtsi
+--- hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-common-p3310-1000-a00.dtsi	2018-05-16 00:53:25.000000000 +0000
++++ /usr/src/hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-common-p3310-1000-a00.dtsi	2019-02-20 01:31:39.579549808 +0000
+@@ -47,6 +47,16 @@
+ 
+ 	spi@3240000 {
+ 		status = "okay";
++		spi@0 {
++	      compatible = "spidev";
++	      reg = <0x0>;
++	      spi-max-frequency = <0x1312D00>;
++	      nvidia,enable-hw-based-cs;
++	      nvidia,cs-setup-clk-count = <0x1e>;
++	      nvidia,cs-hold-clk-count = <0x1e>;
++	      nvidia,rx-clk-tap-delay = <0x1f>;
++	      nvidia,tx-clk-tap-delau = <0x0>;
++	    }; 
+ 	};
+ 
+ 	gpio@2200000 {
